@@ -123,7 +123,7 @@ public class MenuSistema {
             case 27 ->
                 nivelAvanzado.conversorUnidades();
             case 28 ->
-                nivelAvanzado.generadorContraseñas();
+                nivelAvanzado.generadorContrasenas();
             case 29 ->
                 nivelAvanzado.sistemaAutenticacion();
             case 30 ->

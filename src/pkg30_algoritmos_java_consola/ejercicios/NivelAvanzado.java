@@ -14,22 +14,19 @@ import pkg30_algoritmos_java_consola.ejercicios.utilidades.Validaciones;
 public class NivelAvanzado {
 
     private final Random random = new Random();
-    private final Scanner scanner = new Scanner(System.in);
 
     public void ordenamientoBurbuja() {
         System.out.println("\n=== ORDENAMIENTO BURBUJA ===");
-        System.out.print("Ingrese la cantidad de números a ordenar: ");
-        int n = scanner.nextInt();
+        int n = EntradaUsuario.leerEntero("Ingrese la cantidad de números a ordenar: ");
 
         double[] numeros = new double[n];
         System.out.println("Ingrese " + n + " números reales:");
         for (int i = 0; i < n; i++) {
-            System.out.print("Número " + (i + 1) + ": ");
-            numeros[i] = scanner.nextInt();
+            numeros[i] = EntradaUsuario.leerDecimal("Número " + (i + 1) + ": ");
         }
 
-        System.out.print("¿Ordenar ascendente (A) o descendente (D)? ");
-        char orden = scanner.next().toUpperCase().charAt(0);
+        char orden = Character.toUpperCase(
+                EntradaUsuario.leerCaracter("¿Ordenar ascendente (A) o descendente (D)? "));
 
         // Ordenamiento burbuja
         for (int i = 0; i < n - 1; i++) {
@@ -56,17 +53,14 @@ public class NivelAvanzado {
     public void busquedaListas() {
         System.out.println("\n=== BÚSQUEDA EN LISTAS ===");
         List<Integer> numeros = new ArrayList<>();
-        System.out.print("Ingrese la cantidad de números: ");
-        int n = scanner.nextInt();
+        int n = EntradaUsuario.leerEntero("Ingrese la cantidad de números: ");
 
         System.out.println("Ingrese " + n + " números:");
         for (int i = 0; i < n; i++) {
-            System.out.print("Número " + (i + 1) + ": ");
-            numeros.add(scanner.nextInt());
+            numeros.add(EntradaUsuario.leerEntero("Número " + (i + 1) + ": "));
         }
 
-        System.out.print("Ingrese el número a buscar: ");
-        int objetivo = scanner.nextInt();
+        int objetivo = EntradaUsuario.leerEntero("Ingrese el número a buscar: ");
 
         // Búsqueda secuencial
         int posicion = -1;
@@ -84,8 +78,7 @@ public class NivelAvanzado {
         }
 
         // Para búsqueda binaria necesitaríamos ordenar primero
-        System.out.println("\n¿Desea realizar búsqueda binaria? (S/N): ");
-        if (scanner.next().equalsIgnoreCase("S")) {
+        if (EntradaUsuario.leerConfirmacion("\n¿Desea realizar búsqueda binaria? (S/N): ")) {
             numeros.sort(Integer::compareTo);
             System.out.println("Lista ordenada para búsqueda binaria: " + numeros);
 
@@ -176,8 +169,7 @@ public class NivelAvanzado {
         System.out.println("Tienes " + maxIntentos + " intentos.");
 
         while (intentos < maxIntentos && !adivinado) {
-            System.out.print("Intento " + (intentos + 1) + ": ");
-            int intento = scanner.nextInt();
+            int intento = EntradaUsuario.leerEntero("Intento " + (intentos + 1) + ": ");
             intentos++;
 
             if (intento == numeroSecreto) {
@@ -228,14 +220,11 @@ public class NivelAvanzado {
             System.out.println("\n1. Agregar respuesta");
             System.out.println("2. Ver resultados");
             System.out.println("3. Salir");
-            System.out.print("Seleccione opción: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar buffer
+            opcion = EntradaUsuario.leerEntero("Seleccione opción: ");
 
             switch (opcion) {
                 case 1 -> {
-                    System.out.print("Ingrese su respuesta: ");
-                    String respuesta = scanner.nextLine();
+                    String respuesta = EntradaUsuario.leerTexto("Ingrese su respuesta: ");
                     respuestas.add(respuesta);
                     System.out.println("Respuesta registrada.");
                 }
@@ -280,9 +269,9 @@ public class NivelAvanzado {
 
     public void conversorUnidades() {
         System.out.println("\n=== CONVERSOR DE UNIDADES ===");
-        System.out.println("1. Temperatura (Celsius ? Fahrenheit ? Kelvin)");
-        System.out.println("2. Longitud (metros ? pies ? pulgadas)");
-        System.out.println("3. Masa (kilogramos ? libras ? onzas)");
+        System.out.println("1. Temperatura (Celsius / Fahrenheit / Kelvin)");
+        System.out.println("2. Longitud (metros / pies / pulgadas)");
+        System.out.println("3. Masa (kilogramos / libras / onzas)");
 
         int opcion = EntradaUsuario.leerEntero("Seleccione el tipo de conversión: ");
 
@@ -359,7 +348,7 @@ public class NivelAvanzado {
         System.out.printf("%.2f kg = %.2f onzas%n", kg, onzas);
     }
 
-    public void generadorContraseñas() {
+    public void generadorContrasenas() {
         System.out.println("\n=== GENERADOR DE CONTRASEÑAS ===");
         int longitud = EntradaUsuario.leerEntero("Ingrese la longitud de la contraseña (8-32): ");
 
@@ -368,9 +357,9 @@ public class NivelAvanzado {
             return;
         }
 
-        boolean incluirMayusculas = EntradaUsuario.leerTexto("¿Incluir mayúsculas? (S/N): ").equalsIgnoreCase("S");
-        boolean incluirNumeros = EntradaUsuario.leerTexto("¿Incluir números? (S/N): ").equalsIgnoreCase("S");
-        boolean incluirSimbolos = EntradaUsuario.leerTexto("¿Incluir símbolos? (S/N): ").equalsIgnoreCase("S");
+        boolean incluirMayusculas = EntradaUsuario.leerConfirmacion("¿Incluir mayúsculas? (S/N): ");
+        boolean incluirNumeros = EntradaUsuario.leerConfirmacion("¿Incluir números? (S/N): ");
+        boolean incluirSimbolos = EntradaUsuario.leerConfirmacion("¿Incluir símbolos? (S/N): ");
 
         String minusculas = "abcdefghijklmnñopqrstuvwxyz";
         String mayusculas = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
@@ -388,30 +377,30 @@ public class NivelAvanzado {
             caracteres.append(simbolos);
         }
 
-        StringBuilder contraseña = new StringBuilder();
+        StringBuilder contrasena = new StringBuilder();
         for (int i = 0; i < longitud; i++) {
             int index = random.nextInt(caracteres.length());
-            contraseña.append(caracteres.charAt(index));
+            contrasena.append(caracteres.charAt(index));
         }
 
-        System.out.println("Contraseña generada: " + contraseña.toString());
+        System.out.println("Contraseña generada: " + contrasena);
     }
 
     public void sistemaAutenticacion() {
         System.out.println("\n=== SISTEMA DE AUTENTICACIÓN ===");
+        System.out.println("(Demo educativa: usuario y contraseña están escritos en el código,");
+        System.out.println(" esto NO es seguro para una aplicación real.)");
         final String USUARIO_CORRECTO = "admin";
-        final String CONTRASEÑA_CORRECTA = "1234";
+        final String CONTRASENA_CORRECTA = "1234";
 
         int intentos = 3;
         boolean autenticado = false;
 
         while (intentos > 0 && !autenticado) {
-            System.out.print("Usuario: ");
-            String usuario = scanner.next();
-            System.out.print("Contraseña: ");
-            String contraseña = scanner.next();
+            String usuario = EntradaUsuario.leerTexto("Usuario: ");
+            String contrasena = EntradaUsuario.leerTexto("Contraseña: ");
 
-            if (usuario.equals(USUARIO_CORRECTO) && contraseña.equals(CONTRASEÑA_CORRECTA)) {
+            if (usuario.equals(USUARIO_CORRECTO) && contrasena.equals(CONTRASENA_CORRECTA)) {
                 autenticado = true;
                 System.out.println("¡Acceso concedido!");
             } else {
@@ -427,20 +416,17 @@ public class NivelAvanzado {
 
     public void analizadorTexto() {
         System.out.println("\n=== ANALIZADOR DE TEXTO ===");
-        System.out.println("Presione Enter para iniciar...");
-        scanner.nextLine(); // Limpiar buffer
-        System.out.print("Ingrese un texto: ");
-        String texto = scanner.nextLine();
+        String texto = EntradaUsuario.leerTexto("Ingrese un texto: ");
 
-        if (texto.isEmpty()) {
+        if (texto.isBlank()) {
             System.out.println("Error: El texto no puede estar vacío.");
             return;
         }
 
-        // Contar vocales
+        // Contar vocales y consonantes
         int vocales = 0;
         int consonantes = 0;
-        String textoMinusculas = texto.toLowerCase().replaceAll("[^a-z]", "");
+        String textoMinusculas = texto.toLowerCase().replaceAll("[^a-záéíóúñ]", "");
 
         for (char c : textoMinusculas.toCharArray()) {
             if ("aeiouáéíóú".indexOf(c) != -1) {

@@ -15,15 +15,7 @@ public class NivelBasico {
         double num2 = EntradaUsuario.leerDecimal("Ingrese el segundo número: ");
 
         double resultado = num1 + num2;
-        StringBuilder sb = new StringBuilder();
-        sb.append("La suma de ");
-        sb.append(num1);
-        sb.append(" + ");
-        sb.append(num2);
-        sb.append(" = ");
-        sb.append(resultado);
-        System.out.println(sb);
-        System.err.printf("La suma de %.2f + %.2f = %.2f%n", num1, num2, resultado);
+        System.out.printf("La suma de %.2f + %.2f = %.2f%n", num1, num2, resultado);
     }
 
     public void areaTriangulo() {
@@ -32,7 +24,7 @@ public class NivelBasico {
         double altura = EntradaUsuario.leerDecimal("Ingrese la altura del triángulo: ");
 
         if (base <= 0 || altura <= 0) {
-            System.err.println("Error: La base y altura deben ser positivas.");
+            System.out.println("Error: La base y altura deben ser positivas.");
             return;
         }
 
@@ -65,7 +57,7 @@ public class NivelBasico {
         double tiempo = EntradaUsuario.leerDecimal("Ingrese el tiempo (horas): ");
 
         if (tiempo <= 0) {
-            System.err.println("Error: El tiempo debe ser mayor a 0.");
+            System.out.println("Error: El tiempo debe ser mayor a 0.");
             return;
         }
 
@@ -82,7 +74,7 @@ public class NivelBasico {
         } else if (numero < 0) {
             System.out.println("El número es NEGATIVO");
         } else {
-            System.err.println("El número es CERO");
+            System.out.println("El número es CERO");
         }
     }
 
@@ -114,7 +106,7 @@ public class NivelBasico {
         if (edad >= 18) {
             System.out.println("Es MAYOR de edad");
         } else {
-            System.err.println("Es MENOR de edad");
+            System.out.println("Es MENOR de edad");
         }
     }
 

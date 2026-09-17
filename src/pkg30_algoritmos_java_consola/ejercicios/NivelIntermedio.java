@@ -101,7 +101,6 @@ public class NivelIntermedio {
         double num2 = EntradaUsuario.leerDecimal("Ingrese el segundo número: ");
 
         double resultado;
-        //boolean operacionValida = true;
 
         switch (operacion) {
             case "+" ->
