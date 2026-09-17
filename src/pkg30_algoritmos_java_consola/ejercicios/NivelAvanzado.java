@@ -3,7 +3,6 @@ package pkg30_algoritmos_java_consola.ejercicios;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 import pkg30_algoritmos_java_consola.ejercicios.utilidades.EntradaUsuario;
 import pkg30_algoritmos_java_consola.ejercicios.utilidades.Validaciones;
 
